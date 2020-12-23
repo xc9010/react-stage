@@ -7,6 +7,7 @@ module.exports = {
     index: path.resolve(__dirname, '../src/index.js'),
     vendor: [
       'react-router',
+      'antd',
     //   'react-router-dom',
     ]
   },
@@ -15,6 +16,7 @@ module.exports = {
   },
   externals: {
     react: 'window.React',
+    // antd: 'window.antd',
     'react-dom': 'window.ReactDOM',
   },
   module: {
@@ -23,6 +25,10 @@ module.exports = {
         test: /\.(mjs|js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ],
   },

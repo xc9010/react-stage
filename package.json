@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./build/webpack.config.dev.js --open",
-    "build": "rm -rf dist/* && webpack --config ./build/webpack.prd.js"
+    "start": "webpack-dev-server --config ./build/webpack.dev.config.js",
+    "build": "rm -rf dist/* && webpack --config ./build/webpack.pro.config.js"
   },
   "keywords": [],
   "author": "",

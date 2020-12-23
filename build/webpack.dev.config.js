@@ -5,10 +5,10 @@ const baseConfig = require('./webpack.base.config');
 
 module.exports = Object.assign({}, baseConfig, {
   mode: 'development',
-  devtool: 'source-map',
+  // devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, '../build'),
-    filename: 'js/[name].[chunkhash].bundle.js',
+    filename: '[name].[chunkhash].js',
   },
   plugins: [
     new HtmlWebpackPlugin({

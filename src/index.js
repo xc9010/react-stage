@@ -1,6 +1,7 @@
 import React from 'react';
 import reactDom from 'react-dom';
 
-const App = () => (<div>test page123</div>);
 
-reactDom.render(<App/>, document.getElementById('root'));
+import Routes from './pages/root';
+
+reactDom.render(<Routes/>, document.getElementById('root'));

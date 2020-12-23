@@ -5,10 +5,10 @@ module.exports = {
   mode: 'development',
   entry: {
     index: path.resolve(__dirname, '../src/index.js'),
-    // vendor: [
-    //   'react-router',
+    vendor: [
+      'react-router',
     //   'react-router-dom',
-    // ]
+    ]
   },
   resolve: {
     extensions: ['.mjs', '.js', '.jsx'],

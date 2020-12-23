@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Link, Route, Switch } from 'react-router-dom';
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import Antd from './antd/index';
 
 const Home = () => (
@@ -23,7 +23,7 @@ const App = () => (
       <hr/>
       <Route path="/" exact component={Home}/>
       <Route path="/Antd" component={Antd}/>
-      <Route path="/product" component={Product}/>
+      {/*<Route path="/product" component={Product}/>*/}
   </Router>
 )
 

@@ -7,7 +7,7 @@ module.exports = {
     index: path.resolve(__dirname, '../src/index.js'),
     vendor: [
       'react-router',
-      'antd',
+      // 'antd',
     //   'react-router-dom',
     ]
   },
@@ -16,7 +16,7 @@ module.exports = {
   },
   externals: {
     react: 'window.React',
-    // antd: 'window.antd',
+    antd: 'window.antd',
     'react-dom': 'window.ReactDOM',
   },
   module: {

@@ -12,7 +12,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.mjs', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   externals: {
     react: 'window.React',
@@ -22,7 +22,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(mjs|js|jsx)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },

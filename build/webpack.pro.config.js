@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./webpack.base.config');
+const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 
 module.exports = Object.assign({}, baseConfig, {
@@ -23,7 +24,9 @@ module.exports = Object.assign({}, baseConfig, {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),
     }),
-  ],
+  ].concat(
+    process.env.NODE_ENV === 'analysis' ? new BundleAnalyzerPlugin() : []
+  ),
 
   resolve: {
     extensions: ['.mjs', '.js', '.jsx'],

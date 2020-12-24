@@ -10,7 +10,17 @@ module.exports = Object.assign({}, baseConfig, {
     path: path.resolve(__dirname, '../build'),
     filename: '[name].[chunkhash].js',
   },
+  module: {
+    rules: [
+      ...baseConfig.module.rules,
+      {
+        test: /\.css$/,
+        loaders: ['happypack/loader?id=styles'],
+      },
+    ]
+  },
   plugins: [
+    ...baseConfig.plugins,
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),
     }),

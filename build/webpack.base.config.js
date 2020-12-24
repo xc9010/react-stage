@@ -1,4 +1,9 @@
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HappyPack = require('happypack');
+const cpuCount = require('os').cpus().length;
+
+const happyPackPool = HappyPack.ThreadPool({ size: cpuCount - 1 });
 
 
 module.exports = {
@@ -12,7 +17,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', 'css'],
   },
   externals: {
     react: 'window.React',
@@ -26,10 +31,25 @@ module.exports = {
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
     ],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name]-[hash].css',
+      chunkFilename: '[name]-[hash].css',
+    }),
+    new HappyPack({
+      id: 'js',
+      threadPool: happyPackPool,
+      loaders: ['babel-loader?cacheDirectory=true'],
+    }),
+    new HappyPack({
+      id: 'styles',
+      threadPool: happyPackPool,
+      loaders: [
+        'style-loader',
+        'css-loader?modules&localIdentName=[local]-[hash:base64:5]',
+      ],
+    }),
+  ],
 };

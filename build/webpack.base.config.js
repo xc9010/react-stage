@@ -29,14 +29,14 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: ['babel-loader', 'eslint-loader'],
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name]-[hash].css',
-      chunkFilename: '[name]-[hash].css',
+      filename: '[name].[hash].css',
+      chunkFilename: '[name].[hash].css',
     }),
     new HappyPack({
       id: 'js',
@@ -48,7 +48,7 @@ module.exports = {
       threadPool: happyPackPool,
       loaders: [
         'style-loader',
-        'css-loader?modules&localIdentName=[local]-[hash:base64:5]',
+        'css-loader?modules&localIdentName=[local].[hash:base64:5]',
       ],
     }),
   ],

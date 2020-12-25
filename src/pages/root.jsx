@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Link, Route } from 'react-router-dom';
 // import 'antd/dist/antd.css';
 import Antd from './antd/index';
 
@@ -9,21 +9,21 @@ const Home = () => (
   </div>
 )
 
-const Product = () => (
-  <div>
-    <h2>Product</h2>
-  </div>
-)
+// const Product = () => (
+//   <div>
+//     <h2>Product</h2>
+//   </div>
+// )
 
 const App = () => (
   <Router>
-      <Link style={{ margin: '10px' }} to="/">Home</Link>
-      <Link style={{ margin: '10px' }} to="/Antd">Antd</Link>
-      <Link style={{ margin: '10px' }} to="/Product">Product</Link>
-      <hr/>
-      <Route path="/" exact component={Home}/>
-      <Route path="/Antd" component={Antd}/>
-      {/*<Route path="/product" component={Product}/>*/}
+    <Link style={{ margin: '10px' }} to="/">Home</Link>
+    <Link style={{ margin: '10px' }} to="/Antd">Antd</Link>
+    <Link style={{ margin: '10px' }} to="/Product">Product</Link>
+    <hr />
+    <Route path="/" exact component={Home} />
+    <Route path="/Antd" component={Antd} />
+    {/* <Route path="/product" component={Product}/> */}
   </Router>
 )
 

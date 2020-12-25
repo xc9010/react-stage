@@ -1,4 +1,4 @@
-module.exports = ({ env }) => ({
+module.exports = () => ({
   plugins: {
     autoprefixer: {},
   },

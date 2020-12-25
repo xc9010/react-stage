@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const {BundleAnalyzerPlugin} = require('webpack-bundle-analyzer');
 
 
-const pro = Object.assign({}, baseConfig, {
+module.exports = Object.assign({}, baseConfig, {
   mode: 'production',  // 和开发环境下的配置只是修改了 mode
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -38,4 +38,3 @@ const pro = Object.assign({}, baseConfig, {
   },
 });
 
-module.exports = pro

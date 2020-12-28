@@ -1,30 +1,34 @@
 import React from 'react';
-import { HashRouter as Router, Link, Route } from 'react-router-dom';
+import Proptypes from 'prop-types';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 // import 'antd/dist/antd.css';
-import Antd from './antd/index';
+import Nav from './nav/view'
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
 
-// const Product = () => (
-//   <div>
-//     <h2>Product</h2>
-//   </div>
-// )
+const NavWrapper = props => (
+  <Nav {...props}>
+    <Switch>
+      <Route exact path="/" />
+    </Switch>
+  </Nav>
+);
 
-const App = () => (
-  <Router>
-    <Link style={{ margin: '10px' }} to="/">Home</Link>
-    <Link style={{ margin: '10px' }} to="/Antd">Antd</Link>
-    <Link style={{ margin: '10px' }} to="/Product">Product</Link>
-    <hr />
-    <Route path="/" exact component={Home} />
-    <Route path="/Antd" component={Antd} />
-    {/* <Route path="/product" component={Product}/> */}
-  </Router>
-)
+
+const App = ({history}) => {
+  console.log(history)
+  return (
+    <Router history={history}>
+      <main style={{ minWidth: 0, flex: 1, display: 'block',height:'100%' }}>
+        <Switch>
+          <Route path="/" component={NavWrapper} />
+        </Switch>
+      </main>
+    </Router>
+  )
+}
+
+App.propTypes = {
+  history: Proptypes.shape(),
+};
 
 export default App;

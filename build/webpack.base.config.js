@@ -9,7 +9,7 @@ const happyPackPool = HappyPack.ThreadPool({ size: cpuCount - 1 });
 module.exports = {
   mode: 'development',
   entry: {
-    index: path.resolve(__dirname, '../src/index.js'),
+    index: path.resolve(__dirname, '../src/index.jsx'),
     vendor: [
       'react-router',
       // 'antd',
@@ -17,6 +17,7 @@ module.exports = {
     ]
   },
   resolve: {
+    modules: ['node_modules', 'web_modules'],
     extensions: ['.js', '.jsx', 'css'],
   },
   externals: {

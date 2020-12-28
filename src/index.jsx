@@ -5,4 +5,7 @@ import hashHistory from 'lib/history';
 
 import Routes from './pages/root';
 
-reactDom.render(<Routes history={hashHistory} />, document.getElementById('root'));
+reactDom.render(
+  <Routes history={hashHistory} />,
+  document.getElementById('root')
+);

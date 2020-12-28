@@ -1,28 +1,22 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import {Router, Route, Switch} from 'react-router-dom';
 // import 'antd/dist/antd.css';
 import Nav from './nav/view'
-
-
-const NavWrapper = props => (
-  <Nav {...props}>
-    <Switch>
-      <Route exact path="/" />
-    </Switch>
-  </Nav>
-);
-
+import Antd from '../pages/antd'
+import Empty from '../pages/empty'
 
 const App = ({history}) => {
   console.log(history)
   return (
     <Router history={history}>
-      <main style={{ minWidth: 0, flex: 1, display: 'block',height:'100%' }}>
+      <Nav>
         <Switch>
-          <Route path="/" component={NavWrapper} />
+          <Route exact path="/" component={Empty} />
+          <Route exact path="/antd" component={Antd} />
+          <Route exact path="/empty" component={Empty} />
         </Switch>
-      </main>
+      </Nav>
     </Router>
   )
 }

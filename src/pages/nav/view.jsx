@@ -1,9 +1,16 @@
 import React from 'react';
 import { Layout } from 'antd';
+// import hashHistory from 'lib/history';
 import Proptypes from 'prop-types';
 import Slider from './jsx/menu'
 
 const { Header, Footer, Sider, Content } = Layout;
+
+const Welcome = () => (
+  <div>
+    welcome
+  </div>
+);
 
 class Frame extends React.Component {
   constructor(props) {
@@ -12,23 +19,21 @@ class Frame extends React.Component {
   }
 
   render() {
-    console.log('this.props', this.props)
     const {
       children,
     } = this.props;
+    console.log('children', children)
     return (
       <Layout>
         <Sider
           breakpoint="lg"
           collapsedWidth="0"
-          onBreakpoint={broken => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
         >
-          <div style={{ lineHeight: '64px', color: '#fff', textAlign: 'center' }}>
+          <div
+            style={{ lineHeight: '64px', color: '#fff', textAlign: 'center',cursor: 'pointer' }}
+            // onClick={() => hashHistory.push('/')}
+            // onKeyDown={this.handleClick}
+          >
             logo
           </div>
           <Slider />
@@ -37,7 +42,7 @@ class Frame extends React.Component {
           <Header className="site-layout-sub-header-background" style={{ padding: 0 }} />
           <Content style={{ margin: '24px 16px 0' }}>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-              {children}
+              {children || <Welcome />}
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
@@ -49,5 +54,8 @@ class Frame extends React.Component {
 
 Frame.propTypes = {
   children: Proptypes.shape({}),
+};
+Frame.defaultProps = {
+  children: <Welcome />,
 };
 export default Frame;

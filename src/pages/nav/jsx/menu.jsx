@@ -1,46 +1,70 @@
 import React from 'react';
-import { Menu } from 'antd';
-import hashHistory from 'lib/history';
+import {Menu} from 'antd';
+import hashHistory from '../../../../web_modules/lib/history';
 
 const {SubMenu} = Menu;
 
 class Slider extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      menu: [
+        {
+          name: '展示',
+          pid: 1,
+          children: [
+            {name: 'antd', path: '/antd'},
+            {name: 'antd', path: '/antd/1'},
+          ]
+        },
+        {
+          name: '异步',
+          pid: 2,
+          children: [
+            {name: 'redux', path: '/redux'},
+            {name: 'redux-saga', path: '/saga'},
+          ]
+        },
+        {
+          name: 'empty',
+          pid: 3,
+          children: [
+            {name: 'loading', path: '/loading'},
+            {name: 'empty', path: '/empty'},
+          ]
+        }
+      ]
+    }
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick(e) {
-    console.log('e', e)
     hashHistory.push(e.key)
   }
 
   render() {
+    const {menu} = this.state
+
     return (
       <Menu
         onClick={this.handleClick}
         style={{width: '100%'}}
         defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1', 'sub2', 'sub4']}
+        defaultOpenKeys={['1', '2', '3']}
         mode="inline"
       >
-        <SubMenu key="sub1" title="Navigation One">
-          <Menu.Item key="/antd">Option 1</Menu.Item>
-          <Menu.Item key="/empty">Option 2</Menu.Item>
-          <Menu.Item key="/empty">Option 3</Menu.Item>
-          <Menu.Item key="/">Option 4</Menu.Item>
-        </SubMenu>
-        <SubMenu key="sub2" title="Navigation Two">
-          <Menu.Item key="5">Option 5</Menu.Item>
-          <Menu.Item key="6">Option 6</Menu.Item>
-        </SubMenu>
-        <SubMenu key="sub4" title="Navigation Three">
-          <Menu.Item key="9">Option 9</Menu.Item>
-          <Menu.Item key="10">Option 10</Menu.Item>
-          <Menu.Item key="11">Option 11</Menu.Item>
-          <Menu.Item key="12">Option 12</Menu.Item>
-        </SubMenu>
+        {
+          menu.map(v => (
+            <SubMenu key={v.pid} title={v.name}>
+              {
+                v.children.map(i => (
+                  <Menu.Item key={i.path}>{i.name}</Menu.Item>
+                ))
+              }
+            </SubMenu>
+            )
+          )
+        }
       </Menu>
     );
   }

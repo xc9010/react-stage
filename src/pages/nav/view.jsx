@@ -1,6 +1,5 @@
 import React from 'react';
 import { Layout } from 'antd';
-// import hashHistory from 'lib/history';
 import Proptypes from 'prop-types';
 import Slider from './jsx/menu'
 
@@ -29,13 +28,7 @@ class Frame extends React.Component {
           breakpoint="lg"
           collapsedWidth="0"
         >
-          <div
-            style={{ lineHeight: '64px', color: '#fff', textAlign: 'center',cursor: 'pointer' }}
-            // onClick={() => hashHistory.push('/')}
-            // onKeyDown={this.handleClick}
-          >
-            logo
-          </div>
+          <div style={{ lineHeight: '64px', color: '#fff', textAlign: 'center',cursor: 'pointer' }}>logo</div>
           <Slider />
         </Sider>
         <Layout>

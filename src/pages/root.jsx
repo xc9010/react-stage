@@ -5,6 +5,7 @@ import Nav from './nav/view'
 import Antd from '../pages/antd'
 import Empty from '../pages/empty'
 import Loading from '../pages/loading'
+import BigData from '../pages/bigData'
 
 const App = ({history}) => (
   <Router history={history}>
@@ -15,6 +16,7 @@ const App = ({history}) => (
         <Route exact path="/antd/:id" component={Antd} />
         <Route exact path="/empty" component={Empty} />
         <Route exact path="/loading" component={Loading} />
+        <Route exact path="/bigdata" component={BigData} />
       </Switch>
     </Nav>
   </Router>

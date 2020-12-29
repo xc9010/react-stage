@@ -5,6 +5,10 @@ import hashHistory from '../../../../web_modules/lib/history';
 const {SubMenu} = Menu;
 
 class Slider extends React.Component {
+  static handleClick(e) {
+    hashHistory.push(e.key)
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -15,6 +19,7 @@ class Slider extends React.Component {
           children: [
             {name: 'antd', path: '/antd'},
             {name: 'antd', path: '/antd/1'},
+            {name: 'bigdata', path: '/bigdata'},
           ]
         },
         {
@@ -35,11 +40,7 @@ class Slider extends React.Component {
         }
       ]
     }
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick(e) {
-    hashHistory.push(e.key)
+    Slider.handleClick = Slider.handleClick.bind(this)
   }
 
   render() {
@@ -47,7 +48,7 @@ class Slider extends React.Component {
 
     return (
       <Menu
-        onClick={this.handleClick}
+        onClick={Slider.handleClick}
         style={{width: '100%'}}
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['1', '2', '3']}

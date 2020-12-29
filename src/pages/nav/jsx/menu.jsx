@@ -26,7 +26,7 @@ class Slider extends React.Component {
           name: '异步',
           pid: 2,
           children: [
-            {name: 'redux', path: '/redux'},
+            {name: 'redux', path: '/redux1'},
             {name: 'redux-saga', path: '/saga'},
           ]
         },

@@ -1,5 +1,5 @@
 
-import { message } from 'antd';
+// import { message } from 'antd';
 import { takeLatest } from 'redux-saga/effects';
 import * as TYPES from './types';
 import { getramdon } from './server'

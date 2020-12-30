@@ -1,14 +1,11 @@
 import React from 'react'
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { Button } from 'antd'
 import { getData } from "./actions";
 
-class Saga extends React.Component{
-  constructor(props) {
-    super(props)
-  }
+class Saga extends React.PureComponent{
   render() {
-    console.log(this.props)
     return (
       <div>
         <Button onClick={() => this.props.dispatch(getData())}>触发saga</Button>
@@ -16,6 +13,9 @@ class Saga extends React.Component{
     )
   }
 }
+Saga.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   saga: state.saga

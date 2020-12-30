@@ -28,7 +28,15 @@ const Tab1 = (props) => (
   </div>
 );
 
-const Tab2 = (props) => (
+Tab1.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  redux1: PropTypes.shape({
+    total1: PropTypes.number
+  }),
+};
+
+
+const Tab2 = () => (
   <div>
     <Button onClick={() => hashHistory.push('/saga')}>触发saga</Button>
   </div>

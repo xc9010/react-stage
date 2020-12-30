@@ -2,7 +2,7 @@
 const defaultState = {
   init: false,
   total1: 10
-}
+};
 
 const redux1 = (state = defaultState, action) => {
   switch (action.type) {

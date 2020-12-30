@@ -1,8 +1,8 @@
 
 #### 框架类
 - ~~react-router~~
-- react-redux
-- redux
+- ~~react-redux~~
+- ~~redux~~
 - redux-saga
 
 #### Webpack类

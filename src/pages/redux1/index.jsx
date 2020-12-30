@@ -5,32 +5,43 @@ import { Tabs, Button } from 'antd';
 
 const { TabPane } = Tabs;
 
+const Tab1 = (props) => (
+  <div>
+    <Button
+      type="primary"
+      onClick={() => props.dispatch({type: 'ADD'})}
+    >add
+    </Button>
+    <Button
+      type="primary"
+      onClick={() => props.dispatch({type: 'MIN'})}
+    >min
+    </Button>
+    <Button
+      type="primary"
+      onClick={() => props.dispatch({type: 'RESET'})}
+    >reset
+    </Button>
+    {props.redux1.total1}
+  </div>
+);
+
+const Tab2 = (props) => (
+  <div>
+    <Button>触发saga</Button>
+  </div>
+);
+
 class Redux1 extends React.PureComponent{
   render(){
-    const { redux1, dispatch } = this.props;
     return (
       <div>
-        <Tabs defaultActiveKey="1">
+        <Tabs defaultActiveKey="2">
           <TabPane tab="触发redux" key="1">
-            <Button
-              type="primary"
-              onClick={() => dispatch({type: 'ADD'})}
-            >add
-            </Button>
-            <Button
-              type="primary"
-              onClick={() => dispatch({type: 'MIN'})}
-            >min
-            </Button>
-            <Button
-              type="primary"
-              onClick={() => dispatch({type: 'RESET'})}
-            >reset
-            </Button>
-            {redux1.total1}
+            <Tab1 {...this.props} />
           </TabPane>
-          <TabPane tab="2" key="2">
-            123
+          <TabPane tab="触发redux-saga" key="2">
+            <Tab2 {...this.props} />
           </TabPane>
         </Tabs>
       </div>

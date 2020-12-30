@@ -4,7 +4,7 @@ const defaultState = {
   total1: 10
 };
 
-const redux1 = (state = defaultState, action) => {
+const reducers = (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD':
       return {
@@ -26,4 +26,4 @@ const redux1 = (state = defaultState, action) => {
   }
 };
 
-export default redux1;
+export default reducers;

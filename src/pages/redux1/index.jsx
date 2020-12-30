@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { Tabs, Button } from 'antd';
+import hashHistory from '../../../web_modules/lib/history';
+
 
 const { TabPane } = Tabs;
 
@@ -28,7 +30,7 @@ const Tab1 = (props) => (
 
 const Tab2 = (props) => (
   <div>
-    <Button>触发saga</Button>
+    <Button onClick={() => hashHistory.push('/saga')}>触发saga</Button>
   </div>
 );
 
@@ -36,7 +38,7 @@ class Redux1 extends React.PureComponent{
   render(){
     return (
       <div>
-        <Tabs defaultActiveKey="2">
+        <Tabs defaultActiveKey="1">
           <TabPane tab="触发redux" key="1">
             <Tab1 {...this.props} />
           </TabPane>

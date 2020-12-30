@@ -7,6 +7,7 @@ import Empty from '../pages/empty'
 import Loading from '../pages/loading'
 import BigData from '../pages/bigData'
 import Redux1 from '../pages/redux1'
+import Saga from '../pages/saga'
 
 const App = ({history}) => (
   <Router history={history}>
@@ -19,6 +20,7 @@ const App = ({history}) => (
         <Route exact path="/loading" component={Loading} />
         <Route exact path="/bigdata" component={BigData} />
         <Route exact path="/redux1" component={Redux1} />
+        <Route exact path="/saga" component={Saga} />
       </Switch>
     </Nav>
   </Router>

@@ -9,12 +9,18 @@ class Saga extends React.PureComponent{
     return (
       <div>
         <Button onClick={() => this.props.dispatch(getData())}>触发saga</Button>
+        <div>
+          {this.props.saga.data}
+        </div>
       </div>
     )
   }
 }
 Saga.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  saga: PropTypes.shape({
+    data: PropTypes.string
+  }),
 };
 
 const mapStateToProps = state => ({

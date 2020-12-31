@@ -1,7 +1,7 @@
 import * as TYPES from './types';
 
 const defaultState = {
-  data: [],
+  data: '123',
 };
 
 const reducers = (state = defaultState, action) => {
@@ -10,6 +10,12 @@ const reducers = (state = defaultState, action) => {
       return {
         ...state,
         data: action.data
+      };
+    case TYPES.SET_DATA:
+      console.log(action)
+      return {
+        ...state,
+        data: action.data.data.list
       };
     default:
       return state;

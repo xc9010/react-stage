@@ -8,4 +8,7 @@ export const getData = (data) => ({
   data,
 });
 
-export const get = () => {};
+export const setData = (data) => ({
+  type: TYPES.SET_DATA,
+  data
+});
